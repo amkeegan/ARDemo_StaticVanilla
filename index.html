@@ -1,0 +1,67 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <h1 style="text-align: center;">Augmented Reality Demonstrations</h1>
+  <div id="body_content"></div>
+
+  <div class="card">
+    <a href=".usdz"></a>
+  </div>
+  <div class="card">TWO</div>
+  <div class="card">THREE</div>
+  <div class="card">FOUR</div>
+  <div class="card">FIVE</div>
+  <div class="card">SIX</div>
+  <div class="card">SEVEN</div>
+  <div class="card">EIGHT</div>
+  <div class="card">NINE</div>
+  <div class="card">TEN</div>
+  <div class="card">ELEVEN</div>
+  <div class="card">TWELVE</div>
+
+  <script src="js/qrcode.js"></script>
+  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+
+  <script type="text/javascript">
+    if(iOS())
+    {
+      document.getElementById("body_content").innerHTML = ""
+    }
+    else if(navigator.userAgent.toLowerCase().indexOf("android") > -1)
+    {
+
+    }
+    else
+    {
+      new QRCode(document.getElementById("body_content"), window.location.href);
+      var tmpContent = document.getElementById("body_content");
+      var newContent = document.createElement('div');
+      newContent.innerHTML = "<h3>Scan the QR code with your mobile device to access content.</h2>";
+      tmpContent.appendChild(newContent.firstChild);
+      tmpContent.classList.add("qrcode");
+    }
+  </script>
+
+</body>
+
+</html>

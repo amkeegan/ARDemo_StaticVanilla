@@ -56,11 +56,10 @@ function createDivAndroid(filename) {
   var tmpContent = document.getElementById("body_content");
   var newContent = document.createElement('div');
   
+  var model_tag = "<a href=\"intent://arvr.google.com/scene-viewer/1.0?file="+filename+"?mode=ar_preferred&title=Duck&resizable=true#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://www.google.com;end;\">";
   var file = filename.replace('glb','jpg');
-
-  var model_tag = "<a href=\"intent://arvr.google.com/scene-viewer/1.0?file=" + filename + "#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://developers.google.com/ar;end;\">";
   var img_tag = "<img class=\"image-model\" src=\"" + file + "\" alt =\"\">";
-
+  //var img_tag = "";
   newContent.innerHTML = model_tag + img_tag;
   
   tmpContent.appendChild(newContent.firstChild);
@@ -87,7 +86,7 @@ else
 {
   var tmpContent = document.getElementById("body_content");
   var newContent = document.createElement('div');
-  newContent.innerHTML = "<h3>Scan the QR code with your Apple mobile device to access content.</h3>";
+  newContent.innerHTML = "<h3>Scan the QR code with your mobile device to access content.</h3>";
   tmpContent.appendChild(newContent.firstChild);
   tmpContent.classList.add("qrcode");
 }

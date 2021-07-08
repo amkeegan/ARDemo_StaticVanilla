@@ -34,13 +34,16 @@ var ios_models = [
 ];
 
 var android_models = [
-  '/models/android/duck.glb'
+  '/models/android/duck.glb',
+  '/models/android/fox.glb'
 ]
 
 function createDiviOS(filename) {
   var tmpContent = document.getElementById("body_content");
+  tmpContent.classList.add("card");
   var newContent = document.createElement('div');
-  
+  newContent.classList.add("card");
+
   var file = filename.replace('usdz','jpg');
 
   var img_tag = "<img class=\"image-model\" src=\"" + file + "\" alt =\"\">";
@@ -54,16 +57,18 @@ function createDiviOS(filename) {
 
 function createDivAndroid(filename) {
   var tmpContent = document.getElementById("body_content");
+  tmpContent.classList.add("card");  
   var newContent = document.createElement('div');
-  
-  var model_tag = "<a href=\"intent://arvr.google.com/scene-viewer/1.0?file="+filename+"?mode=ar_preferred&title=Duck&resizable=true#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://www.google.com;end;\">Open in AR</a>";
+  newContent.classList.add("card");  
+
+  var model_tag = "<a href=\"intent://arvr.google.com/scene-viewer/1.0?file="+fox_model+"?mode=ar_preferred&title=Duck&resizable=true#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://www.google.com;end;\">";//Open in AR</a>";
   var file = filename.replace('glb','jpg');
-  var img_tag = "<img class=\"image-model\" src=\"" + file + "\" alt =\"\">";
+  var img_tag = "<img class=\"image-model\" src=\"" + file + "\" alt =\"\"><br>";
   //var img_tag = "";
   newContent.innerHTML = model_tag + img_tag;
   
   tmpContent.appendChild(newContent.firstChild);
-  tmpContent.classList.add("card");  
+
 }
 
 if(window.IS_IOS)
@@ -71,7 +76,6 @@ if(window.IS_IOS)
   ios_models.forEach(createDiviOS); 
   var tmp_title = document.getElementById("title");
   tmp_title.innerHTML = "<h3>iOS Models</h3>";
-
   document.getElementById("canvas").remove();
 }
 else if(window.IS_ANDROID)
@@ -79,7 +83,6 @@ else if(window.IS_ANDROID)
   android_models.forEach(createDivAndroid); 
   var tmp_title = document.getElementById("title");
   tmp_title.innerHTML = "<h3>Android Models</h3>";
-
   document.getElementById("canvas").remove();
 }
 else

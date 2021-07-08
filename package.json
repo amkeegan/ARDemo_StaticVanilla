@@ -6,7 +6,7 @@
   "license": "",
   "author": "",
   "scripts": {
-    "build": "parcel build index.html ios.html android.html",
+    "build": "parcel build index.html",
     "dev": "parcel index.html --open",
     "start": "npm run build && npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,6 +18,11 @@
   "dependencies": {
     "js": "^0.1.0",
     "main.js": "0.0.1",
-    "qrcode": "^1.4.4"
+    "qrcode": "^1.4.4",
+    "static": "^2.0.0"
+  },
+  "staticFiles": {
+    "staticPAth": "static",
+    "watcherGlob": "**/**/*.*"
   }
 }

@@ -33,7 +33,11 @@ var ios_models = [
   '/models/apple/toy_biplane.usdz'
 ];
 
-function createDiv(filename) {
+var android_models = [
+  '/models/android/duck.glb'
+]
+
+function createDiviOS(filename) {
   var tmpContent = document.getElementById("body_content");
   var newContent = document.createElement('div');
   
@@ -48,9 +52,24 @@ function createDiv(filename) {
   tmpContent.classList.add("card");  
 }
 
+function createDivAndroid(filename) {
+  var tmpContent = document.getElementById("body_content");
+  var newContent = document.createElement('div');
+  
+  var file = filename.replace('glb','jpg');
+
+  var model_tag = "<a href=\"intent://arvr.google.com/scene-viewer/1.0?file=" + filename + "#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://developers.google.com/ar;end;\">";
+  var img_tag = "<img class=\"image-model\" src=\"" + file + "\" alt =\"\">";
+
+  newContent.innerHTML = model_tag + img_tag;
+  
+  tmpContent.appendChild(newContent.firstChild);
+  tmpContent.classList.add("card");  
+}
+
 if(window.IS_IOS)
 {
-  ios_models.forEach(createDiv); 
+  ios_models.forEach(createDiviOS); 
   var tmp_title = document.getElementById("title");
   tmp_title.innerHTML = "<h3>iOS Models</h3>";
 
@@ -58,11 +77,11 @@ if(window.IS_IOS)
 }
 else if(window.IS_ANDROID)
 {
-  var tmpContent = document.getElementById("body_content");
-  tmpContent.innerHTML = "";
-
+  android_models.forEach(createDivAndroid); 
   var tmp_title = document.getElementById("title");
   tmp_title.innerHTML = "<h3>Android Models</h3>";
+
+  document.getElementById("canvas").remove();
 }
 else
 {

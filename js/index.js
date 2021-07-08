@@ -56,7 +56,7 @@ function createDivAndroid(filename) {
   var tmpContent = document.getElementById("body_content");
   var newContent = document.createElement('div');
   
-  var model_tag = "<a href=\"intent://arvr.google.com/scene-viewer/1.0?file="+filename+"?mode=ar_preferred&title=Duck&resizable=true#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://www.google.com;end;\">";
+  var model_tag = "<a href=\"intent://arvr.google.com/scene-viewer/1.0?file="+filename+"?mode=ar_preferred&title=Duck&resizable=true#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://www.google.com;end;\">Open in AR</a>";
   var file = filename.replace('glb','jpg');
   var img_tag = "<img class=\"image-model\" src=\"" + file + "\" alt =\"\">";
   //var img_tag = "";

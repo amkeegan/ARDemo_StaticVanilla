@@ -25,4 +25,3 @@ Assets
 Toy Biplane - https://developer.apple.com/augmented-reality/quick-look/
 
 Duck - https://github.com/KhronosGroup/glTF-Sample-Models
-

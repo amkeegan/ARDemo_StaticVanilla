@@ -34,8 +34,7 @@ var ios_models = [
 ];
 
 var android_models = [
-  '/models/android/duck.glb',
-  '/models/android/fox.glb'
+  '/models/android/duck.glb'
 ]
 
 function createDiviOS(filename) {
@@ -61,14 +60,12 @@ function createDivAndroid(filename) {
   var newContent = document.createElement('div');
   newContent.classList.add("card");  
 
-  var model_tag = "<a href=\"intent://arvr.google.com/scene-viewer/1.0?file="+fox_model+"?mode=ar_preferred&title=Duck&resizable=true#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://www.google.com;end;\">";//Open in AR</a>";
+  var model_tag = "<a href=\"intent://arvr.google.com/scene-viewer/1.0?file="+ window.location.href + filename+"?mode=ar_preferred&&resizable=true#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://www.google.com;end;\">";
   var file = filename.replace('glb','jpg');
   var img_tag = "<img class=\"image-model\" src=\"" + file + "\" alt =\"\"><br>";
-  //var img_tag = "";
-  newContent.innerHTML = model_tag + img_tag;
-  
-  tmpContent.appendChild(newContent.firstChild);
 
+  newContent.innerHTML = model_tag + img_tag;
+  tmpContent.appendChild(newContent.firstChild);
 }
 
 if(window.IS_IOS)
